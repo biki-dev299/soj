@@ -44,14 +44,14 @@ export default function Page() {
         <div className="hidden items-center gap-8 text-sm font-medium text-[#50645a] md:flex">
           <a href="#why" className="transition-colors hover:text-[#164b35]">Why SOJ</a>
           <a href="#learn" className="transition-colors hover:text-[#164b35]">What you&apos;ll learn</a>
-          <a href="#path" className="transition-colors hover:text-[#164b35]">The path</a>
+          <a href="#path" className="transition-colors hover:text-[#164b35]">The path</a><a href="/resources" className="transition-colors hover:text-[#164b35]">Free resources</a>
         </div>
         <a href="#join" className="hidden rounded-full bg-[#ed6a3d] px-5 py-3 text-sm font-bold text-white shadow-[0_4px_0_#b94d28] transition-transform hover:-translate-y-0.5 sm:inline-flex">Join the first 50 <ArrowUpRight className="ml-1 size-4" /></a>
         <button type="button" className="rounded-lg p-2 md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
           {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </nav>
-      {menuOpen && <div className="mx-5 mb-4 flex flex-col gap-4 rounded-2xl border border-[#d8e5dc] bg-white p-5 text-sm font-semibold md:hidden"><a href="#why" onClick={() => setMenuOpen(false)}>Why SOJ</a><a href="#learn" onClick={() => setMenuOpen(false)}>What you&apos;ll learn</a><a href="#join" onClick={() => setMenuOpen(false)}>Join the first 50</a></div>}
+      {menuOpen && <div className="mx-5 mb-4 flex flex-col gap-4 rounded-2xl border border-[#d8e5dc] bg-white p-5 text-sm font-semibold md:hidden"><a href="#why" onClick={() => setMenuOpen(false)}>Why SOJ</a><a href="#learn" onClick={() => setMenuOpen(false)}>What you&apos;ll learn</a><a href="#join" onClick={() => setMenuOpen(false)}>Join the first 50</a><a href="/resources" onClick={() => setMenuOpen(false)}>Free resources</a></div>}
 
       <section id="top" className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-20">
         <div className="relative z-10">
