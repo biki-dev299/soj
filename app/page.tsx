@@ -29,9 +29,23 @@ const agentSkills = ['Website building', 'AEO & GEO', 'CRM setup', 'Email automa
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#f7f7f2] text-[#11231d]">
+      {resourcesOpen && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-[#11231d]/60 px-5" role="dialog" aria-modal="true" aria-labelledby="resources-dialog-title">
+          <div className="relative w-full max-w-md rounded-[2rem] bg-white p-7 shadow-2xl sm:p-9">
+            <button type="button" onClick={() => setResourcesOpen(false)} className="absolute right-5 top-5 rounded-full p-2 text-[#65766d] transition-colors hover:bg-[#f1f5ef] hover:text-[#164b35]" aria-label="Close free resources dialog">
+              <X className="size-5" />
+            </button>
+            <p className="text-xs font-black uppercase tracking-[.18em] text-[#ed6a3d]">Start learning free</p>
+            <h2 id="resources-dialog-title" className="mt-3 text-3xl font-black tracking-[-.04em] text-[#164b35]">Your direction is ready.</h2>
+            <p className="mt-4 text-base leading-7 text-[#65766d]">Find free classes, PDFs, and trusted platforms for communication, AI, websites, and career growth.</p>
+            <a href="/resources" onClick={() => setResourcesOpen(false)} className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-[#164b35] px-5 py-4 font-bold text-white shadow-[0_5px_0_#a8c8ad] transition-transform hover:-translate-y-0.5">Explore free resources <ArrowUpRight className="ml-2 size-5" /></a>
+          </div>
+        </div>
+      )}
       <div className="border-b border-[#dce8df] bg-[#e6f6e8] px-5 py-3 text-center text-xs font-semibold tracking-wide text-[#1b5e3e]">
         Free guidance. Real skills. Your own income. <span className="hidden sm:inline">No pay-to-join promise.</span>
       </div>
@@ -58,7 +72,7 @@ export default function Page() {
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#c8dfce] bg-white px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#26734b]"><Sparkles className="size-3.5" /> A community for the next CEO</div>
           <h1 className="max-w-3xl text-5xl font-black leading-[.98] tracking-[-0.055em] sm:text-6xl lg:text-[5.35rem]">Don&apos;t wait for a job.<br /><span className="text-[#ed6a3d]">Build your way forward.</span></h1>
           <p className="mt-7 max-w-xl text-lg leading-8 text-[#5b6d63]">SOJ helps job and internship seekers learn communication, AI agents, automation, and real-world digital skills — so you can create opportunities instead of only waiting for them.</p>
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"><a href="#join" className="inline-flex items-center justify-center rounded-full bg-[#164b35] px-6 py-4 font-bold text-white shadow-[0_5px_0_#a8c8ad] transition-transform hover:-translate-y-0.5">I want to build <ArrowUpRight className="ml-2 size-5" /></a><a href="#why" className="inline-flex items-center justify-center gap-2 px-2 py-3 text-sm font-bold text-[#164b35]">See how it works <ChevronRight className="size-4" /></a></div>
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center"><a href="#join" className="inline-flex items-center justify-center rounded-full bg-[#164b35] px-6 py-4 font-bold text-white shadow-[0_5px_0_#a8c8ad] transition-transform hover:-translate-y-0.5">I want to build <ArrowUpRight className="ml-2 size-5" /></a><button type="button" onClick={() => setResourcesOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-full border border-[#c8dfce] bg-white px-5 py-3 text-sm font-bold text-[#164b35] transition-colors hover:bg-[#e7f4e7]">Find free learning <ArrowUpRight className="size-4" /></button><a href="#why" className="inline-flex items-center justify-center gap-2 px-2 py-3 text-sm font-bold text-[#164b35]">See how it works <ChevronRight className="size-4" /></a></div>
           <div className="mt-12 flex items-center gap-4 border-t border-[#d8e5dc] pt-5 text-sm text-[#668074]"><div className="flex -space-x-2"><span className="grid size-8 place-items-center rounded-full border-2 border-[#f7f7f2] bg-[#f4bb75] text-xs font-black">A</span><span className="grid size-8 place-items-center rounded-full border-2 border-[#f7f7f2] bg-[#8ec6a4] text-xs font-black">R</span><span className="grid size-8 place-items-center rounded-full border-2 border-[#f7f7f2] bg-[#b7a3db] text-xs font-black">S</span></div><span><strong className="text-[#164b35]">50+ builders</strong> needed for the first learning team</span></div>
         </div>
         <div className="relative mx-auto w-full max-w-[510px] lg:justify-self-end"><div className="absolute -right-4 -top-7 size-28 rounded-full bg-[#f4c65d] blur-[1px]" /><div className="relative rounded-[2.5rem] bg-[#164b35] p-5 shadow-[12px_14px_0_#cfe3d1] sm:p-7"><div className="rounded-[1.75rem] bg-[#e7f4e7] p-6 sm:p-8"><div className="mb-14 flex items-center justify-between"><span className="text-sm font-black tracking-[.18em] text-[#164b35]">SOJ / 01</span><span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-[#ed6a3d]">START HERE</span></div><div className="relative mx-auto flex aspect-square max-w-[265px] items-center justify-center rounded-full border-[1.5rem] border-[#f4bb75] bg-[#164b35] shadow-[inset_0_0_0_1px_#286646]"><div className="text-center text-white"><CircleUserRound className="mx-auto mb-2 size-14 stroke-[1.3]" /><p className="text-2xl font-black leading-none">Learn.</p><p className="text-2xl font-black leading-none text-[#f4bb75]">Build.</p><p className="text-2xl font-black leading-none">Lead.</p></div><span className="absolute -right-5 top-8 grid size-12 place-items-center rounded-2xl bg-white text-[#ed6a3d] shadow-lg"><Bot className="size-6" /></span><span className="absolute -bottom-3 -left-4 grid size-12 place-items-center rounded-2xl bg-[#ed6a3d] text-white shadow-lg"><Globe2 className="size-6" /></span></div><p className="mt-7 text-center text-sm font-bold text-[#164b35]">Your background is not a barrier.<br />Your next step is.</p></div></div></div>
