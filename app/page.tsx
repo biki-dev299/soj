@@ -30,6 +30,7 @@ const agentSkills = ['Website building', 'AEO & GEO', 'CRM setup', 'Email automa
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [resourcesOpen, setResourcesOpen] = useState(false)
+  const [chatbotOpen, setChatbotOpen] = useState(true)
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#f7f7f2] text-[#11231d]">
@@ -46,6 +47,19 @@ export default function Page() {
           </div>
         </div>
       )}
+      {chatbotOpen ? (
+        <aside className="fixed bottom-5 right-5 z-40 w-[min(22rem,calc(100vw-2rem))] rounded-3xl border border-[#c8dfce] bg-white p-4 text-[#11231d] shadow-[0_18px_50px_rgba(17,35,29,.2)]" aria-label="SOJ AI learning guide">
+          <div className="flex items-start gap-3">
+            <div className="grid size-11 shrink-0 place-items-center rounded-2xl bg-[#164b35] text-[#f4c65d]"><Bot className="size-5" /></div>
+            <div className="min-w-0 flex-1"><p className="text-xs font-black uppercase tracking-[.14em] text-[#ed6a3d]">SOJ AI guide</p><p className="mt-1 text-sm font-bold leading-5">Not sure where to start? I&apos;ll help you find a free learning path.</p></div>
+            <button type="button" onClick={() => setChatbotOpen(false)} className="rounded-full p-1.5 text-[#65766d] transition-colors hover:bg-[#f1f5ef] hover:text-[#164b35]" aria-label="Close AI guide"><X className="size-4" /></button>
+          </div>
+          <a href="/resources" className="mt-4 flex items-center justify-center rounded-full bg-[#ed6a3d] px-4 py-3 text-sm font-bold text-white shadow-[0_3px_0_#b94d28] transition-transform hover:-translate-y-0.5">Show me the direction <ArrowUpRight className="ml-2 size-4" /></a>
+        </aside>
+      ) : (
+        <button type="button" onClick={() => setChatbotOpen(true)} className="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-[#164b35] text-[#f4c65d] shadow-[0_7px_0_#a8c8ad] transition-transform hover:-translate-y-1" aria-label="Open SOJ AI guide"><Bot className="size-6" /></button>
+      )}
+
       <div className="border-b border-[#dce8df] bg-[#e6f6e8] px-5 py-3 text-center text-xs font-semibold tracking-wide text-[#1b5e3e]">
         Free guidance. Real skills. Your own income. <span className="hidden sm:inline">No pay-to-join promise.</span>
       </div>
